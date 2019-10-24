@@ -29,14 +29,12 @@ pipeline {
 
         stage('Compile') {
             steps {
-                container('maven') {
-                    script {
-                        sh """
-                            mvn versions:set -DnewVersion=${VERSION}
-                            mvn clean compile
-                        """
-                    }
-                }
+                script {
+                    sh """
+                       mvn versions:set -DnewVersion=${VERSION}
+                       mvn clean compile
+                    """
+               }
             }
         }
 	// other stages
