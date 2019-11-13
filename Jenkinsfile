@@ -1,7 +1,4 @@
 node('maven-slave') {
-
-
-    stages {
         stage('Checkout') {
             steps {
                   deleteDir()
@@ -24,5 +21,4 @@ node('maven-slave') {
                 }
 	    }		
 	}
-     }
 }
