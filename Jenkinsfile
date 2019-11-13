@@ -1,4 +1,17 @@
-node('maven-slave') {
+pipeline {
+
+    agent {
+     kubernetes {
+            label 'maven-slave'
+        }
+    }
+  
+
+    options {
+        skipDefaultCheckout(true)
+    }
+
+    stages {
         stage('Checkout') {
             steps {
                   deleteDir()
@@ -21,4 +34,5 @@ node('maven-slave') {
                 }
 	    }		
 	}
+     }
 }
