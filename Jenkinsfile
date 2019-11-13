@@ -1,33 +1,10 @@
 pipeline {
 
     agent {
-     kubernetes {
-            label 'petclinic-app'
-            defaultContainer 'jnlp'
-            yaml """
-apiVersion: v1
-kind: Pod
-metadata:
-  labels:
-    pipeline: jenkinsfile
-spec:
-  containers:
-    - name: 'maven'
-      image: maven:3.3.9
-      command:
-        - cat
-      tty: true
-      volumeMounts:
-        - mountPath: '/root/.m2'
-          name: maven-repo
-          readOnly: false
-  volumes:
-    - name: maven-repo
-      persistentVolumeClaim:
-        claimName: maven-repo-pvc
-"""
-        }
-    }
+	kubernetes {
+                label 'maven-slave'
+	}
+    } 
   
 
     options {
