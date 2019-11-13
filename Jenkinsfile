@@ -44,13 +44,17 @@ spec:
 
         stage('Compile') {
             steps {
+        	container('maven') {	
                   sh "mvn clean compile"
+                }
             }
         }
 
 	stage('Test') {
 	   steps {
-		sh "mvn verify"
+		container('maven') {
+		  sh "mvn verify"
+                }
 	    }		
 	}
      }
