@@ -1,11 +1,5 @@
-pipeline {
+node('maven-slave') {
 
-    agent {
-	kubernetes {
-                label 'maven-slave'
-	}
-    } 
-  
 
     options {
         skipDefaultCheckout(true)
