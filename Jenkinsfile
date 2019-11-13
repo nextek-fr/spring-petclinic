@@ -1,10 +1,6 @@
 node('maven-slave') {
 
 
-    options {
-        skipDefaultCheckout(true)
-    }
-
     stages {
         stage('Checkout') {
             steps {
